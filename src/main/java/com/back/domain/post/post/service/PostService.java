@@ -4,7 +4,7 @@ import com.back.domain.post.post.document.Post;
 import com.back.domain.post.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import java.util.Optional;
 import java.util.List;
 
 @Service
@@ -23,5 +23,8 @@ public class PostService {
 
     public List<Post> findAll() {
         return postRepository.findAll();
+    }
+    public Optional<Post> findById(String id) {
+        return postRepository.findById(id);
     }
 }
