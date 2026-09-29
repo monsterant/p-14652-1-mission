@@ -3,7 +3,7 @@ package com.back.domain.post.post.service;
 import com.back.domain.post.post.document.Comment;
 import com.back.domain.post.post.document.Post;
 import com.back.domain.post.post.repository.CommentRepository;
-import com.back.global.initData.exception.NotFoundException;
+import com.back.global.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

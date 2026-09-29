@@ -1,5 +1,8 @@
-package com.back.global.initData.exception;
+package com.back.global.exception;
 
+import lombok.Getter;
+
+@Getter
 public class DomainException extends RuntimeException {
     String resultCode;
     public DomainException(String resultCode, String message) {
