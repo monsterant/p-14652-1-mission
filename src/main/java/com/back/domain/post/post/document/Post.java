@@ -5,9 +5,9 @@ import org.springframework.data.elasticsearch.annotations.DateFormat;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
-
+import lombok.Getter;
 import java.time.OffsetDateTime;
-
+@Getter
 @Document(indexName = "posts")
 public class Post {
     @Id
