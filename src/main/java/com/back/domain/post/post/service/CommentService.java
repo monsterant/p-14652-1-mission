@@ -3,6 +3,7 @@ package com.back.domain.post.post.service;
 import com.back.domain.post.post.document.Comment;
 import com.back.domain.post.post.document.Post;
 import com.back.domain.post.post.repository.CommentRepository;
+import com.back.global.initData.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,25 @@ public class CommentService {
 
     public List<Comment> findAll() {
         return commentRepository.findAll();
+    }
+
+    public Comment findById(String id) {
+        return commentRepository.findById(id).orElseThrow(()->new NotFoundException("Comment not found with id: " + id));
+    }
+
+    public List<Comment> findByPostId(String postId) {
+        return commentRepository.findByPostId(postId);
+    }
+
+    public Comment update(String id, String content) {
+        Comment comment = findById(id);
+        if (content != null){
+            comment.setContent(content);
+        }
+        return commentRepository.save(comment);
+    }
+
+    public void delete(Comment comment) {
+        commentRepository.delete(comment);
     }
 }
