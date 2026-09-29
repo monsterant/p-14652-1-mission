@@ -5,7 +5,6 @@ import com.back.domain.post.post.repository.PostRepository;
 import com.back.global.initData.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 import java.util.List;
 
 @Service
@@ -40,5 +39,10 @@ public class PostService {
         }
         post.setLastModifiedAt(java.time.OffsetDateTime.now());
         return postRepository.save(post);
+    }
+
+    public void delete(String id) {
+        Post post = findById(id);
+        postRepository.delete(post);
     }
 }
